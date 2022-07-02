@@ -84,7 +84,7 @@
   <br/>
   <footer>
     <div class="login-box-body text-center bg-blue">
-       <a style="color: yellow;"> Copyright &copy; Sistem Perpustakaan Codekop - <?php echo date("Y");?>
+       <a style="color: yellow;"> Copyright &copy; Sistem Perpustakaan SMK BISA - <?php echo date("Y");?>
     </div>
   </footer>
 </div>

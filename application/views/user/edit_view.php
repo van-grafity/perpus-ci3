@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>E-mail</label>
-                                    <input type="email"  value="<?= $user->email;?>" readonly class="form-control" name="email" required="required" placeholder="Contoh : fauzan1892@codekop.com">
+                                    <input type="email"  value="<?= $user->email;?>" readonly class="form-control" name="email" required="required" placeholder="Contoh : jhon@smkbisa.com">
                                 </div>
                                 <div class="form-group">
                                     <label>Pas Foto</label>
