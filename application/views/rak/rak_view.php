@@ -18,9 +18,9 @@
 					<div class="box box-primary">
 						<div class="box-header with-border">
 							<?php if(!empty($this->input->get('id'))){?>
-							<h4> Edit Rak</h4>
+							<h4> Edit Lokasi</h4>
 							<?php }else{?>
-							<h4> Tambah Rak</h4>
+							<h4> Tambah Lokasi</h4>
 							<?php }?>
 						</div>
 						<!-- /.box-header -->
@@ -46,7 +46,7 @@
 								</div>
 								<br/>
 								<input type="hidden" name="tambah" value="tambah">
-								<button type="submit" class="btn btn-primary"> <i class="fa fa-plus"></i> Tambah Rak</button>
+								<button type="submit" class="btn btn-primary"> <i class="fa fa-plus"></i> Tambah Lokasi</button>
 							</form>
 							<?php }?>
 						</div>
@@ -63,7 +63,7 @@
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Rak Buku</th>
+										<th>Lokasi Buku</th>
 										<th>Aksi</th>
 									</tr>
 								</thead>

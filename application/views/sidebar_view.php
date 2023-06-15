@@ -63,7 +63,7 @@
                         <?php if($this->uri->uri_string() == 'data/bukudetail/'.$this->uri->segment('3')){ echo 'active';}?>
                         <?php if($this->uri->uri_string() == 'data/bukuedit/'.$this->uri->segment('3')){ echo 'active';}?>">
                         <a href="<?php echo base_url("data");?>" class="cursor">
-                            <span class="fa fa-book"></span> Data Buku
+                            <span class="fa fa-book"></span> List Buku
                             
                         </a>
                     </li>
@@ -75,7 +75,7 @@
                     </li>
                     <li class=" <?php if($this->uri->uri_string() == 'data/rak'){ echo 'active';}?>">
                         <a href="<?php echo base_url("data/rak");?>" class="cursor">
-                            <span class="fa fa-list"></span> Rak
+                            <span class="fa fa-list"></span> Lokasi
                             
                         </a>
                     </li>

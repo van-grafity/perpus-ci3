@@ -82,11 +82,11 @@
   </div>
   <!-- /.login-box-body -->
   <br/>
-  <footer>
+  <!-- <footer>
     <div class="login-box-body text-center bg-blue">
-       <a style="color: yellow;"> Copyright &copy; Sistem Perpustakaan SMK BISA - <?php echo date("Y");?>
+       <a style="color: yellow;"> Copyright &copy; Sistem Perpustakaan SMAN 19 BATAM - <?php echo date("Y");?>
     </div>
-  </footer>
+  </footer> -->
 </div>
 <!-- /.login-box -->
 <!-- Response Ajax -->

@@ -358,7 +358,7 @@ class Data extends CI_Controller {
 			}
 		}
 
-        $this->data['title_web'] = 'Data Rak Buku ';
+        $this->data['title_web'] = 'Data Lokasi Buku ';
         $this->load->view('header_view',$this->data);
         $this->load->view('sidebar_view',$this->data);
         $this->load->view('rak/rak_view',$this->data);
@@ -378,7 +378,7 @@ class Data extends CI_Controller {
 
 			
 			$this->session->set_flashdata('pesan','<div id="notifikasi"><div class="alert alert-success">
-			<p> Tambah Rak Buku Sukses !</p>
+			<p> Tambah Lokasi Buku Sukses !</p>
 			</div></div>');
 			redirect(base_url('data/rak'));  
 		}

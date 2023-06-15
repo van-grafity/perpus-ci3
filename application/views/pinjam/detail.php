@@ -183,7 +183,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td>Data Buku</td>
+										<td>List Buku</td>
 										<td>:</td>
 										<td>
 											<table class="table table-striped">

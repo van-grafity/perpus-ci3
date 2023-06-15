@@ -82,7 +82,7 @@ error_reporting(0);
         <div class="container">
             <br/> 
             <div class="pull-left">
-                SMK BISA - Preview HTML to DOC [ size paper A4 ]
+                SMAN 19 BATAM - Preview HTML to DOC [ size paper A4 ]
             </div>
             <div class="pull-right"> 
             <button type="button" class="btn btn-success btn-md" onclick="printDiv('printableArea')">

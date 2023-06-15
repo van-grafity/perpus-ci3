@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 <div class="clearfix"></div>
 <footer class="main-footer">
-    <div id="mycredit"><strong> Copyright &copy; <?php echo date('Y');?> Sistem Informasi Perpustakaan SMK BISA 
+    <div id="mycredit"><strong> Copyright &copy; <?php echo date('Y');?> Sistem Informasi Perpustakaan SMAN 19 BATAM 
     </strong> All rights | Page rendered in <strong>{elapsed_time}</strong> seconds. 
     <div class="pull-right">
      <span id="made_with"></span>
