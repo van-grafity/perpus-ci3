@@ -304,6 +304,18 @@ class User extends CI_Controller {
 			}
 		}
     }
+
+	public function upload()
+	{
+		$this->data['idbo'] = $this->session->userdata('ses_id');
+        $this->data['user'] = $this->M_Admin->get_table('tbl_login');
+        
+        $this->data['title_web'] = 'Tambah User ';
+        $this->load->view('header_view',$this->data);
+        $this->load->view('sidebar_view',$this->data);
+        $this->load->view('user/upload');
+        $this->load->view('footer_view',$this->data);
+	}
     public function del()
     {
         if($this->uri->segment('3') == ''){ echo '<script>alert("halaman tidak ditemukan");window.location="'.base_url('user').'";</script>';}

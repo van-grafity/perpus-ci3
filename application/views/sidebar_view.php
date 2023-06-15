@@ -11,8 +11,6 @@
             if(isset($d->foto)){
           ?>
           <br/>
-          <img src="<?php echo base_url();?>assets_style/image/<?php echo $d->foto;?>" alt="#" c
-          lass="user-image" style="border:2px solid #fff;height:auto;width:100%;"/>
           <?php }else{?>
             <!--<img src="" alt="#" class="user-image" style="border:2px solid #fff;"/>-->
             <i class="fa fa-user fa-4x" style="color:#fff;"></i>
@@ -113,6 +111,13 @@
             <li class="<?php if($this->uri->uri_string() == 'transaksi/denda'){ echo 'active';}?>">
                 <a href="<?php echo base_url("transaksi/denda");?>" class="cursor">
                     <i class="fa fa-money"></i> <span>Denda</span>
+                    
+                </a>
+            </li>
+            <!-- upload dokumen (No, Nama, File Action) -->
+            <li class="<?php if($this->uri->uri_string() == 'user/upload'){ echo 'active';}?>">
+                <a href="<?php echo base_url("user/upload");?>" class="cursor">
+                    <i class="fa fa-upload"></i> <span>Upload Dokumen</span>
                     
                 </a>
             </li>
