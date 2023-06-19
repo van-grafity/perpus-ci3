@@ -77,6 +77,12 @@
                             
                         </a>
                     </li>
+                    <li class=" <?php if($this->uri->uri_string() == 'data/dokumen'){ echo 'active';}?>">
+                    <a href="<?php echo base_url("data/dokumen");?>" class="cursor">
+                            <span class="fa fa-list"></span> Dokumen
+                            
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="treeview 

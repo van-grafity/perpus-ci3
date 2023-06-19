@@ -10,14 +10,13 @@
     </ol>
   </section>
   <section class="content">
-	<div class="row">
+    <div class="row">
 	    <div class="col-md-12">
 	        <div class="box box-primary">
                 <div class="box-header with-border">
                 </div>
-			    <!-- /.box-header -->
 			    <div class="box-body">
-                    <form action="<?php echo base_url('user/do_upload');?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?php echo base_url('user/submit');?>" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -34,23 +33,23 @@
                                         <option value="4">Surat</option>
                                     </select>
                                 </div>
+                                <!-- deskripsi -->
+                                <div class="form-group">
+                                    <label>Deskripsi</label>
+                                    <textarea name="deskripsi" class="form-control" rows="3" placeholder="Deskripsi Dokumen"></textarea>
+                                </div>
+                                <!-- file -->
                                 <div class="form-group">
                                     <label>File</label>
-                                    <input type="file" class="form-control" name="file" required="required">
+                                    <input type="file" name="file" class="form-control" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <label>Keterangan</label>
-                                    <textarea name="keterangan" class="form-control" required="required" placeholder="Keterangan"></textarea>
+                                    <button type="submit" class="btn btn-primary btn-flat"><i class="fa fa-save"></i>&nbsp; Upload</button>
+                                    <a href="<?php echo base_url('user');?>" class="btn btn-default btn-flat"><i class="fa fa-arrow-left"></i>&nbsp; Kembali</a>
                                 </div>
-                                <div class="form-group">
-                                    <label>Upload By</label>
-                                    <input type="text" class="form-control" name="upload_by" required="required" placeholder="Upload By">
-                                </div>
+                                <input type="hidden" name="upload_by" value="<?php echo $this->session->userdata('id_user');?>">
+                                <input type="hidden" name="tgl_upload" value="<?php echo date('Y-m-d');?>">
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" name="submit" class="btn btn-primary btn-flat"><i class="fa fa-save"></i>&nbsp; Upload</button>
-                            <a href="<?php echo base_url('user');?>" class="btn btn-warning btn-flat"><i class="fa fa-arrow-left"></i>&nbsp; Kembali</a>
                         </div>
                     </form>
                 </div>
@@ -59,4 +58,3 @@
     </div>
     </section>
 </div>
-                            

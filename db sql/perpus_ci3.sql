@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2023 at 11:50 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- Generation Time: Jun 19, 2023 at 05:09 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `tbl_biaya_denda` (
   `harga_denda` varchar(255) NOT NULL,
   `stat` varchar(255) NOT NULL,
   `tgl_tetap` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_biaya_denda`
@@ -62,7 +62,7 @@ CREATE TABLE `tbl_buku` (
   `isi` text DEFAULT NULL,
   `jml` int(11) DEFAULT NULL,
   `tgl_masuk` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_buku`
@@ -83,7 +83,7 @@ CREATE TABLE `tbl_denda` (
   `denda` varchar(255) NOT NULL,
   `lama_waktu` int(11) NOT NULL,
   `tgl_denda` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_denda`
@@ -96,13 +96,29 @@ INSERT INTO `tbl_denda` (`id_denda`, `pinjam_id`, `denda`, `lama_waktu`, `tgl_de
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_dokumen`
+--
+
+CREATE TABLE `tbl_dokumen` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `kategori` varchar(255) NOT NULL,
+  `deskripsi` varchar(255) NOT NULL,
+  `file` varchar(255) NOT NULL,
+  `upload_by` varchar(255) NOT NULL,
+  `tgl_upload` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_kategori`
 --
 
 CREATE TABLE `tbl_kategori` (
   `id_kategori` int(11) NOT NULL,
   `nama_kategori` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_kategori`
@@ -132,7 +148,7 @@ CREATE TABLE `tbl_login` (
   `email` varchar(255) NOT NULL,
   `tgl_bergabung` varchar(255) NOT NULL,
   `foto` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_login`
@@ -158,7 +174,7 @@ CREATE TABLE `tbl_pinjam` (
   `lama_pinjam` int(11) NOT NULL,
   `tgl_balik` varchar(255) NOT NULL,
   `tgl_kembali` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_pinjam`
@@ -177,7 +193,7 @@ INSERT INTO `tbl_pinjam` (`id_pinjam`, `pinjam_id`, `anggota_id`, `buku_id`, `st
 CREATE TABLE `tbl_rak` (
   `id_rak` int(11) NOT NULL,
   `nama_rak` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_rak`
@@ -209,6 +225,12 @@ ALTER TABLE `tbl_buku`
 --
 ALTER TABLE `tbl_denda`
   ADD PRIMARY KEY (`id_denda`);
+
+--
+-- Indexes for table `tbl_dokumen`
+--
+ALTER TABLE `tbl_dokumen`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_kategori`
@@ -255,6 +277,12 @@ ALTER TABLE `tbl_buku`
 --
 ALTER TABLE `tbl_denda`
   MODIFY `id_denda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `tbl_dokumen`
+--
+ALTER TABLE `tbl_dokumen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_kategori`

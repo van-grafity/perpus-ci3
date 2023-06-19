@@ -97,7 +97,56 @@ class User extends CI_Controller {
 		}    
       
     }
+	
+	public function submit()
+	{
+		$nama = htmlentities($this->input->post('nama',TRUE));
+		$kategori = htmlentities($this->input->post('kategori',TRUE));
+		$deskripsi = htmlentities($this->input->post('deskripsi',TRUE));
+		$nama_file = htmlentities($this->input->post('nama_file',TRUE));
+		$nama_file = str_replace(' ', '_', $nama_file);
+		
+		// setting konfigurasi upload
+		$nmfile = "dokumen".time();
+		$config['upload_path'] = './assets_style/dokumen/';
+		$config['allowed_types'] = 'pdf|doc|docx|xls|xlsx|ppt|pptx';
+		$config['file_name'] = $nmfile;
+		// load library upload
+		$this->load->library('upload', $config);
+		// upload file 1
+		$this->upload->do_upload('file');
+		$result1 = $this->upload->data();
+		$result = array('file'=>$result1);
+		$data1 = array('upload_data' => $this->upload->data());
+		
+		$data = array(
+			'nama' => $nama,
+			'kategori' => $kategori,
+			'deskripsi' => $deskripsi,
+			'file' => $data1['upload_data']['file_name'],
+			'upload_by' => $this->session->userdata('ses_id'),
+			'tgl_upload' => date('Y-m-d')
+		);
+		$this->db->insert('tbl_dokumen',$data);
 
+		$this->session->set_flashdata('pesan','<div id="notifikasi"><div class="alert alert-success">
+		<p> Dokumen telah berhasil diupload !</p>
+		</div></div>');
+		redirect(base_url('user/dokumen'));
+	}
+
+	public function dokumen()
+	{
+		// get data tbl_dokumen idho
+		$this->data['idbo'] = $this->session->userdata('ses_id');
+		$this->data['dokumen'] = $this->M_Admin->get_table('tbl_dokumen');
+		
+		$this->data['title_web'] = 'Data Dokumen';
+        $this->load->view('header_view',$this->data);
+        $this->load->view('sidebar_view',$this->data);
+        $this->load->view('user/dokumen_view',$this->data);
+        $this->load->view('footer_view',$this->data);
+	}
     public function edit()
     {	
 		if($this->session->userdata('level') == 'Petugas'){
@@ -308,7 +357,7 @@ class User extends CI_Controller {
 	public function upload()
 	{
 		$this->data['idbo'] = $this->session->userdata('ses_id');
-        $this->data['user'] = $this->M_Admin->get_table('tbl_login');
+        $this->data['documen'] = $this->M_Admin->get_table('tbl_dokumen');
         
         $this->data['title_web'] = 'Tambah User ';
         $this->load->view('header_view',$this->data);

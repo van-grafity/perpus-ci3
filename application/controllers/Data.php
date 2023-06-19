@@ -410,4 +410,28 @@ class Data extends CI_Controller {
 			redirect(base_url('data/rak')); 
 		}
 	}
+
+	public function dokumen()
+	{
+		
+		$this->data['idbo'] = $this->session->userdata('ses_id');
+		$this->data['dokumen'] =  $this->db->query("SELECT * FROM tbl_dokumen ORDER BY id DESC");
+
+		if(!empty($this->input->get('id'))){
+			$id = $this->input->get('id');
+			$count = $this->M_Admin->CountTableId('tbl_dokumen','id',$id);
+			if($count > 0)
+			{	
+				$this->data['dok'] = $this->db->query("SELECT *FROM tbl_dokumen WHERE id='$id'")->row();
+			}else{
+				echo '<script>alert("DOKUMEN TIDAK DITEMUKAN");window.location="'.base_url('data/dokumen').'"</script>';
+			}
+		}
+
+		$this->data['title_web'] = 'Data Dokumen ';
+		$this->load->view('header_view',$this->data);
+		$this->load->view('sidebar_view',$this->data);
+		$this->load->view('user/dokumen_view',$this->data);
+		$this->load->view('footer_view',$this->data);
+	}
 }
