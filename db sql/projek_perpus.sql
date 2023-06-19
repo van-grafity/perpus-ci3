@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: May 19, 2020 at 08:01 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Host: 127.0.0.1
+-- Generation Time: Jun 19, 2023 at 11:50 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `library-laravel`
+-- Database: `perpus_ci3`
 --
 
 -- --------------------------------------------------------
@@ -33,7 +32,7 @@ CREATE TABLE `tbl_biaya_denda` (
   `harga_denda` varchar(255) NOT NULL,
   `stat` varchar(255) NOT NULL,
   `tgl_tetap` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_biaya_denda`
@@ -63,7 +62,7 @@ CREATE TABLE `tbl_buku` (
   `isi` text DEFAULT NULL,
   `jml` int(11) DEFAULT NULL,
   `tgl_masuk` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_buku`
@@ -84,7 +83,7 @@ CREATE TABLE `tbl_denda` (
   `denda` varchar(255) NOT NULL,
   `lama_waktu` int(11) NOT NULL,
   `tgl_denda` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_denda`
@@ -103,7 +102,7 @@ INSERT INTO `tbl_denda` (`id_denda`, `pinjam_id`, `denda`, `lama_waktu`, `tgl_de
 CREATE TABLE `tbl_kategori` (
   `id_kategori` int(11) NOT NULL,
   `nama_kategori` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_kategori`
@@ -133,15 +132,15 @@ CREATE TABLE `tbl_login` (
   `email` varchar(255) NOT NULL,
   `tgl_bergabung` varchar(255) NOT NULL,
   `foto` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_login`
 --
 
 INSERT INTO `tbl_login` (`id_login`, `anggota_id`, `user`, `pass`, `level`, `nama`, `tempat_lahir`, `tgl_lahir`, `jenkel`, `alamat`, `telepon`, `email`, `tgl_bergabung`, `foto`) VALUES
-(1, 'AG001', 'anang', '202cb962ac59075b964b07152d234b70', 'Petugas', 'Anang', 'Bekasi', '1999-04-05', 'Laki-Laki', 'Ujung Harapan', '089618173609', 'fauzan1892@codekop.com', '2019-11-20', 'user_1567327491.png'),
-(2, 'AG002', 'fauzan', '202cb962ac59075b964b07152d234b70', 'Anggota', 'Fauzan', 'Bekasi', '1998-11-18', 'Laki-Laki', 'Bekasi Barat', '08123123185', 'fauzanfalah21@gmail.com', '2019-11-21', 'user_1589911243.png');
+(1, 'AG001', 'fajri', '202cb962ac59075b964b07152d234b70', 'Petugas', 'Fajri', 'Batam', '1999-04-05', 'Laki-Laki', 'Batam Center', '081212121212', 'fajri@gmail.com', '2019-11-20', 'user_1589911243.jpeg'),
+(2, 'AG002', 'jhon', '202cb962ac59075b964b07152d234b70', 'Anggota', 'Jhon', 'Tjg.Pinang', '1998-11-18', 'Laki-Laki', 'Tanjung Center', '085212341234', 'jhon@gmail.com', '2019-11-21', 'user_1589911243.png');
 
 -- --------------------------------------------------------
 
@@ -159,7 +158,7 @@ CREATE TABLE `tbl_pinjam` (
   `lama_pinjam` int(11) NOT NULL,
   `tgl_balik` varchar(255) NOT NULL,
   `tgl_kembali` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_pinjam`
@@ -178,14 +177,16 @@ INSERT INTO `tbl_pinjam` (`id_pinjam`, `pinjam_id`, `anggota_id`, `buku_id`, `st
 CREATE TABLE `tbl_rak` (
   `id_rak` int(11) NOT NULL,
   `nama_rak` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_rak`
 --
 
 INSERT INTO `tbl_rak` (`id_rak`, `nama_rak`) VALUES
-(1, 'Rak Buku 1');
+(1, 'Rak Buku 1'),
+(2, ''),
+(3, '');
 
 --
 -- Indexes for dumped tables
@@ -277,7 +278,7 @@ ALTER TABLE `tbl_pinjam`
 -- AUTO_INCREMENT for table `tbl_rak`
 --
 ALTER TABLE `tbl_rak`
-  MODIFY `id_rak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_rak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
