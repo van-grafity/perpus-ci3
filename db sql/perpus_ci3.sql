@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2023 at 05:09 PM
+-- Generation Time: Jun 21, 2023 at 06:30 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -109,6 +109,15 @@ CREATE TABLE `tbl_dokumen` (
   `tgl_upload` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tbl_dokumen`
+--
+
+INSERT INTO `tbl_dokumen` (`id`, `nama`, `kategori`, `deskripsi`, `file`, `upload_by`, `tgl_upload`) VALUES
+(2, 'Ivans', '1', 'a', 'dokumen1687191972.pdf', '1', '2023-06-19'),
+(3, 'Jhon', '2', 'fg', 'dokumen1687192139.pdf', '1', '2023-06-19'),
+(4, 'IVAN SUHENDRA S', '2', 'asd', 'dokumen1687192339.pdf', '1', '2023-06-19');
+
 -- --------------------------------------------------------
 
 --
@@ -155,8 +164,8 @@ CREATE TABLE `tbl_login` (
 --
 
 INSERT INTO `tbl_login` (`id_login`, `anggota_id`, `user`, `pass`, `level`, `nama`, `tempat_lahir`, `tgl_lahir`, `jenkel`, `alamat`, `telepon`, `email`, `tgl_bergabung`, `foto`) VALUES
-(1, 'AG001', 'fajri', '202cb962ac59075b964b07152d234b70', 'Petugas', 'Fajri', 'Batam', '1999-04-05', 'Laki-Laki', 'Batam Center', '081212121212', 'fajri@gmail.com', '2019-11-20', 'user_1589911243.jpeg'),
-(2, 'AG002', 'jhon', '202cb962ac59075b964b07152d234b70', 'Anggota', 'Jhon', 'Tjg.Pinang', '1998-11-18', 'Laki-Laki', 'Tanjung Center', '085212341234', 'jhon@gmail.com', '2019-11-21', 'user_1589911243.png');
+(1, 'AG001', 'fajri', '202cb962ac59075b964b07152d234b70', 'Petugas', 'Admin Fajri Abimayu', 'Padang', '1999-01-21', 'Laki-Laki', 'Perum Citra Mutiland, Sekupang', '081336111221', 'fajri@gmail.com', '2019-11-20', 'user_1589911243.jpeg'),
+(2, 'AG002', 'siswa', '202cb962ac59075b964b07152d234b70', 'Anggota', 'Siswa Fajri Abimayu', 'Padang', '1999-01-21', 'Laki-Laki', 'Perum Citra Mutiland, Sekupang', '081336111221', 'siswa@gmail.com', '2019-11-21', 'user_1589911243.jpeg');
 
 -- --------------------------------------------------------
 
@@ -282,7 +291,7 @@ ALTER TABLE `tbl_denda`
 -- AUTO_INCREMENT for table `tbl_dokumen`
 --
 ALTER TABLE `tbl_dokumen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_kategori`
